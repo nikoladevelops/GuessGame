@@ -1,0 +1,23 @@
+Godot Engine v3.4.4.stable.mono.official.419e713a2 - https://godotengine.org
+OpenGL ES 3.0 Renderer: GeForce GTX 1050 Ti/PCIe/SSE2
+OpenGL ES Batching: ON
+ 
+Mono: Log file is: 'C:/Users/Admin/AppData/Roaming/Godot/mono/mono_logs/2022-05-11_17.53.23_1580.log'
+ERROR: Cannot open file 'res://Scenes/Main.cs'.
+   at: read_all_file_utf8 (modules/mono/utils/string_utils.cpp:167) - Condition "err != OK" is true. Returned: err
+ERROR: Failed to read file: 'res://Scenes/Main.cs'.
+   at: load_source_code (modules/mono/csharp_script.cpp:3317) - Condition "ferr != OK" is true. Returned: ferr
+ERROR: Cannot load C# script file 'res://Scenes/Main.cs'.
+   at: load (modules/mono/csharp_script.cpp:3387) - Condition "err != OK" is true. Returned: RES()
+ERROR: Failed loading resource: res://Scenes/Main.cs. Make sure resources have been imported by opening the project in the editor at least once.
+   at: _load (core/io/resource_loader.cpp:270) - Condition "found" is true. Returned: RES()
+ERROR: res://Main.tscn:4 - Parse Error: [ext_resource] referenced nonexistent resource at: res://Scenes/Main.cs
+   at: poll (scene/resources/resource_format_text.cpp:412) - res://Main.tscn:4 - Parse Error: [ext_resource] referenced nonexistent resource at: res://Scenes/Main.cs
+ERROR: Failed to load resource 'res://Main.tscn'.
+   at: load (core/io/resource_loader.cpp:206) - Condition "err != OK" is true. Returned: RES()
+ERROR: Failed loading resource: res://Main.tscn. Make sure resources have been imported by opening the project in the editor at least once.
+   at: _load (core/io/resource_loader.cpp:270) - Condition "found" is true. Returned: RES()
+ERROR: Failed loading scene: res://Main.tscn
+   at: start (main/main.cpp:2011) - Condition "!scene" is true. Returned: false
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object.cpp:2064) - ObjectDB instances leaked at exit (run with --verbose for details).

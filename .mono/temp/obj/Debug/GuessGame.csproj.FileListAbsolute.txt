@@ -1,0 +1,10 @@
+B:\GodotEngine\GuessGame\.mono\temp\bin\Debug\GuessGame.dll
+B:\GodotEngine\GuessGame\.mono\temp\bin\Debug\GuessGame.pdb
+B:\GodotEngine\GuessGame\.mono\temp\obj\Debug\GuessGame.csproj.AssemblyReference.cache
+B:\GodotEngine\GuessGame\.mono\temp\obj\Debug\GuessGame.GeneratedMSBuildEditorConfig.editorconfig
+B:\GodotEngine\GuessGame\.mono\temp\obj\Debug\GuessGame.AssemblyInfoInputs.cache
+B:\GodotEngine\GuessGame\.mono\temp\obj\Debug\GuessGame.AssemblyInfo.cs
+B:\GodotEngine\GuessGame\.mono\temp\obj\Debug\GuessGame.csproj.CoreCompileInputs.cache
+B:\GodotEngine\GuessGame\.mono\temp\obj\Debug\GuessGame.dll
+B:\GodotEngine\GuessGame\.mono\temp\obj\Debug\GuessGame.pdb
+B:\GodotEngine\GuessGame\.mono\temp\bin\Debug\GuessGame.deps.json
