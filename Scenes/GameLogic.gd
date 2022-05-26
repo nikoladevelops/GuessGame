@@ -1,90 +1,87 @@
 extends Control
 const SQLite = preload("res://addons/godot-sqlite/bin/gdsqlite.gdns");
 
-var db = SQLite.new();
+onready var db = SQLite.new();
 
-var dbPath = "res://DataStore/PomagaloData";
-var validPublishedWorkGenres = [];
-var validPublishedWorkGenresIndexes = [];
+var dbPath = "res://DataStore/PomagaloData"; # The path of the sqlite database
+var validEntityNames = []; # All valid entity names
+var validEntityIndexes = []; # The indexes of all valid entity names in the EntityList
 
-var selectedGenre;
-var selectedGenreIndex;
+var selectedEntityName; # The selected entity name by the user
+var selectedEntityIndex; # The selected entity index inside EntityList
+
+signal questionAnswered;
+
+# The scene nodes saved in variables.
+onready var questionLabel = $Control/QuestionLabel;
+onready var isAnswerCorrectLabel = $Control/isAnswerCorrectLabel;
+onready var entityList = $Control2/EntityList;
+onready var chooseButton = $Control2/ChooseButton;
+onready var audioStreamPlayer = $AudioStreamPlayer;
+onready var audioStreamPlayer2 = $AudioStreamPlayer2;
 
 func _ready():
 	db.path=dbPath;
 	db.open_db();
 	
+	randomize();
 	_loadDataFromDb();
+	
 
 func _loadDataFromDb():
-	$Control/isAnswerCorrectLabel.visible=false;
-	$Control2/GenreList.clear();
-	
-	randomize();
-	""" get all publishedworks' ids and names -> saves it in a dictionary """
-	db.query("SELECT Id, Name FROM PublishedWorks;");
-	
-	""" get a random publishedwork"""
-	var randomNumber = randi() % db.query_result.size();
-	var randomPublishedWork = db.query_result[randomNumber];
-	
-	$Control/QuestionLabel.text='Какъв е жанрът на произведението ' + randomPublishedWork["Name"]+ "?";
-	
-	"""get all genres -> saves it into a dictionary"""
-	db.query("SELECT * FROM Genres");
-	
-	"""add every genre's name into the genrelist"""
-	for i in range(0, db.query_result.size()):
-		$Control2/GenreList.add_item(db.query_result[i]["Name"]);
-	print(db.query_result.size());
-	
-	"""get all genre ids of a particular publishedwork"""
-	var publishedWorkId = str(randomPublishedWork["Id"]);
-	db.query('SELECT GenreId FROM PublishedWorkGenres WHERE PublishedWorkId = ' + publishedWorkId);
-	
-	"""make a new string containing all genre ids in a particular format, so you can use it afterwards"""
-	var validGenreIdsToString = "";
-	for i in range(0, db.query_result.size()):
-		if (i == db.query_result.size()-1):
-			validGenreIdsToString = validGenreIdsToString + str(db.query_result[i]["GenreId"]);
-			break;
-		validGenreIdsToString = validGenreIdsToString + str(db.query_result[i]["GenreId"]) + ",";
-	
-	"""get all genre names of the published work, using the help of that new string"""
-	db.query("SELECT Name FROM Genres WHERE Id IN(" + validGenreIdsToString+")");
-	
-	"""save all valid published work genre names into an array -> validPublishedWorkGenres"""
-	for i in range(0, db.query_result.size()):
-		validPublishedWorkGenres.append(db.query_result[i]["Name"]);
-		
-	print(validPublishedWorkGenres);
-	
-	for i in range(0, $Control2/GenreList.get_item_count()):
-		if validPublishedWorkGenres.has($Control2/GenreList.get_item_text(i)):
-			validPublishedWorkGenresIndexes.append(i);
+	""" Load data from db """
+	pass;
 
 func _on_ChooseButton_button_down():
-	if(!$Control2/GenreList.is_anything_selected()):
+	""" What happens when the choose button is clicked"""
+	
+	""" Play a click sound"""
+	audioStreamPlayer2.play();
+	
+	""" If the EntityList is empty don't do anything"""
+	if(!entityList.is_anything_selected()):
 		return;
 	
+	""" 
+	Check if the selected answer by the user is present in the validEntityNames list
+	If it isn't present, that means the given answer by the user is INCORRECT
+	Make the background color of the incorrect answer to be red
+	"""
 	var answerIsCorrect = true;
-	if(!validPublishedWorkGenres.has(selectedGenre)):
-		$Control2/GenreList.set_item_custom_bg_color(selectedGenreIndex, Color.red);
+	if(!validEntityNames.has(selectedEntityName)):
+		entityList.set_item_custom_bg_color(selectedEntityIndex, Color.red);
 		answerIsCorrect = false;
-		
-	for i in range(0, validPublishedWorkGenresIndexes.size()):
-		$Control2/GenreList.set_item_custom_bg_color(validPublishedWorkGenresIndexes[i], Color.green);
 	
-	$Control/isAnswerCorrectLabel.visible=true;
+	""" Make the background color of all correct answers to be green"""
+	for i in range(0, validEntityIndexes.size()):
+		entityList.set_item_custom_bg_color(validEntityIndexes[i], Color.green);
+	
+	""" Depending on whether the answer is correct, display a different message"""
 	if(answerIsCorrect):
-		$Control/isAnswerCorrectLabel.add_color_override("default_color",Color("46e435"));
-		$Control/isAnswerCorrectLabel.text="Правилен отговор!";
+		isAnswerCorrectLabel.add_color_override("default_color",Color("46e435"));
+		isAnswerCorrectLabel.text="Правилен отговор!";
 	else:
-		$Control/isAnswerCorrectLabel.add_color_override("default_color",Color("d82a2a"));
-		$Control/isAnswerCorrectLabel.text="Грешен отговор!";
+		isAnswerCorrectLabel.add_color_override("default_color",Color("d82a2a"));
+		isAnswerCorrectLabel.text="Грешен отговор!";
+	
+	""" Make the label that dispays that message visible"""
+	isAnswerCorrectLabel.visible=true;
+	
+	""" 
+	Make sure the user can no longer click the choose button
+	Emit a signal that the question was answered
+	"""
+	chooseButton.disabled=true;
+	emit_signal("questionAnswered");
 		
-func _on_GenreList_item_selected(index):
-	selectedGenre = $Control2/GenreList.get_item_text(index);
-	selectedGenreIndex = index;
-	$AudioStreamPlayer.play();
 
+func _on_EntityList_item_selected(index):
+	"""
+	 When an item is selected inside EntityList,
+	 play a select sound
+	 save the selected entity's name
+	 and save the index of that selected entity name
+	'"""
+	audioStreamPlayer.play();
+	selectedEntityName = entityList.get_item_text(index);
+	selectedEntityIndex = index;
