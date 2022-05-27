@@ -14,7 +14,7 @@ func _loadDataFromDb():
 	db.query("SELECT Id, Name FROM PublishedWorks ORDER BY RANDOM() LIMIT 1")
 	var randomPublishedWork = db.query_result[0];
 	
-	questionLabel.text='Какъв е жанрът на произведението ' + randomPublishedWork["Name"]+ "?";
+	questionLabel.text='Какъв е жанрът на произведението ' + randomPublishedWork["Name"]+ '?';
 	
 	""" Get all genres -> saves it into a dictionary """
 	db.query("SELECT * FROM Genres");

@@ -59,7 +59,7 @@ func _on_ChooseButton_button_down():
 		isAnswerCorrectLabel.add_color_override("default_color",Color("46e435"));
 		isAnswerCorrectLabel.text="Правилен отговор!";
 	else:
-		isAnswerCorrectLabel.add_color_override("default_color",Color("d82a2a"));
+		isAnswerCorrectLabel.add_color_override("default_color",Color("FF160C"));
 		isAnswerCorrectLabel.text="Грешен отговор!";
 	
 	""" Make the label that dispays that message visible"""
