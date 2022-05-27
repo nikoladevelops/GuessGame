@@ -24,9 +24,7 @@ func _ready():
 	db.path=dbPath;
 	db.open_db();
 	
-	randomize();
 	_loadDataFromDb();
-	
 
 func _loadDataFromDb():
 	""" Load data from db """
