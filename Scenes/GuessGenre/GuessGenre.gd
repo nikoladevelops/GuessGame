@@ -1,8 +1,5 @@
 extends "res://Scenes/GameLogic.gd"
 
-func _ready():
-	pass # Replace with function body.
-
 func _loadDataFromDb():
 	"""
 	Get a random PublishedWork.
@@ -19,7 +16,7 @@ func _loadDataFromDb():
 	""" Get all genres -> saves it into a dictionary """
 	db.query("SELECT * FROM Genres");
 	
-	""" Add every genre's name into the genrelist """
+	""" Add every genre's name into the entityList """
 	for i in range(0, db.query_result.size()):
 		entityList.add_item(db.query_result[i]["Name"]);
 		
