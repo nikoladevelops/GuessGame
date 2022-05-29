@@ -29,4 +29,3 @@ func _loadDataFromDb():
 	for i in range(0, entityList.get_item_count()):
 		if validEntityNames.has(entityList.get_item_text(i)):
 			validEntityIndexes.append(i);
-	print(validEntityNames[0]);

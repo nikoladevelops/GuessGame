@@ -8,3 +8,6 @@ func _on_GuessAuthor_questionAnswered():
 
 func _on_GuessGenre_questionAnswered():
 	$Timer.start();
+	
+func _on_GuessThemes_questionAnswered():
+	$Timer.start();
