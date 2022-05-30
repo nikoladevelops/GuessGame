@@ -11,3 +11,6 @@ func _on_GuessGenre_questionAnswered():
 	
 func _on_GuessThemes_questionAnswered():
 	$Timer.start();
+	
+func _on_GuessComposition_questionAnswered():
+	$Timer.start();

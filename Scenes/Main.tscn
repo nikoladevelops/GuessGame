@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/GuessGenre/GuessGenre.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/GuessAuthor/GuessAuthor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/GuessThemes/GuessThemes.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/GuessComposition/GuessComposition.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -17,6 +18,9 @@ visible = false
 visible = false
 
 [node name="GuessThemes" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="GuessComposition" parent="." instance=ExtResource( 5 )]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
@@ -24,4 +28,5 @@ wait_time = 3.0
 [connection signal="questionAnswered" from="GuessGenre" to="." method="_on_GuessGenre_questionAnswered"]
 [connection signal="questionAnswered" from="GuessAuthor" to="." method="_on_GuessAuthor_questionAnswered"]
 [connection signal="questionAnswered" from="GuessThemes" to="." method="_on_GuessThemes_questionAnswered"]
+[connection signal="questionAnswered" from="GuessComposition" to="." method="_on_GuessComposition_questionAnswered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
