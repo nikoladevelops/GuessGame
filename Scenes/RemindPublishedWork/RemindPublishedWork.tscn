@@ -28,20 +28,35 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="PublishedWorkList" type="ItemList" parent="."]
-margin_left = 66.0
-margin_top = 122.0
-margin_right = 303.0
-margin_bottom = 285.0
+[node name="ChoosePublishedWorkList" type="ItemList" parent="."]
+margin_left = 53.0
+margin_top = 294.0
+margin_right = 290.0
+margin_bottom = 457.0
 custom_fonts/font = SubResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 72.0
-margin_top = 71.0
-margin_right = 346.0
-margin_bottom = 105.0
+margin_left = 54.0
+margin_top = 251.0
+margin_right = 328.0
+margin_bottom = 285.0
 custom_fonts/normal_font = SubResource( 1 )
 text = "Избери произведение:"
+
+[node name="ChooseAuthorList" type="ItemList" parent="."]
+margin_left = 53.0
+margin_top = 63.0
+margin_right = 290.0
+margin_bottom = 226.0
+custom_fonts/font = SubResource( 2 )
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 54.0
+margin_top = 25.0
+margin_right = 328.0
+margin_bottom = 59.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Избери автор:"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
@@ -52,300 +67,294 @@ stream = ExtResource( 3 )
 volume_db = -11.556
 
 [node name="Control" type="Control" parent="."]
-margin_left = 351.0
-margin_top = 94.0
-margin_right = 364.0
-margin_bottom = 139.0
-__meta__ = {
-"_edit_group_": true
-}
+margin_left = 532.0
+margin_top = 66.0
+margin_right = 545.0
+margin_bottom = 111.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control"]
 anchor_left = 0.09
 anchor_top = 0.178
 anchor_right = 0.09
 anchor_bottom = 0.178
-margin_left = 18.0
-margin_top = -31.502
-margin_right = 96.0
-margin_bottom = -5.502
+margin_left = -204.0
+margin_top = -33.01
+margin_right = -126.0
+margin_bottom = -7.01
 custom_fonts/normal_font = SubResource( 1 )
 text = "Автор
 "
 scroll_active = false
 
 [node name="AuthorNameTextEdit" type="TextEdit" parent="Control"]
-margin_left = 18.0
-margin_top = 7.0
-margin_right = 222.0
-margin_bottom = 56.0
+margin_left = -204.0
+margin_top = 5.492
+margin_bottom = 54.492
 custom_colors/font_color_readonly = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 readonly = true
 override_selected_font_color = true
 
 [node name="Control2" type="Control" parent="."]
-margin_left = 600.0
-margin_top = 94.0
-margin_right = 613.0
-margin_bottom = 139.0
+margin_left = 781.0
+margin_top = 66.0
+margin_right = 794.0
+margin_bottom = 111.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control2"]
 anchor_left = 0.09
 anchor_top = 0.178
 anchor_right = 0.09
 anchor_bottom = 0.178
-margin_left = 17.83
-margin_top = -31.01
-margin_right = 219.83
-margin_bottom = -5.01
+margin_left = -232.17
+margin_top = -32.518
+margin_right = -30.17
+margin_bottom = -6.518
 custom_fonts/normal_font = SubResource( 1 )
 text = "Дата на публикуване"
 scroll_active = false
 
 [node name="DateTextEdit" type="TextEdit" parent="Control2"]
-margin_left = 19.0
-margin_top = 7.0
-margin_right = 222.0
-margin_bottom = 56.0
+margin_left = -231.0
+margin_top = 5.492
+margin_right = -28.0
+margin_bottom = 54.492
 custom_colors/font_color_readonly = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 readonly = true
 override_selected_font_color = true
 
 [node name="Control5" type="Control" parent="."]
-margin_left = 351.0
-margin_top = 180.0
-margin_right = 364.0
-margin_bottom = 225.0
+margin_left = 532.0
+margin_top = 152.0
+margin_right = 545.0
+margin_bottom = 197.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control5"]
 anchor_left = 0.09
 anchor_top = 0.178
 anchor_right = 0.09
 anchor_bottom = 0.178
-margin_left = 18.0
-margin_top = -31.502
-margin_right = 96.0
-margin_bottom = -5.502
+margin_left = -204.0
+margin_top = -33.01
+margin_right = -126.0
+margin_bottom = -7.01
 custom_fonts/normal_font = SubResource( 1 )
 text = "Жанр
 "
 scroll_active = false
 
 [node name="GenreTextEdit" type="TextEdit" parent="Control5"]
-margin_left = 18.0
-margin_top = 7.0
-margin_right = 222.0
-margin_bottom = 113.0
+margin_left = -204.0
+margin_top = 5.492
+margin_bottom = 111.492
 custom_colors/font_color_readonly = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 readonly = true
 override_selected_font_color = true
 
 [node name="Control6" type="Control" parent="."]
-margin_left = 600.0
-margin_top = 180.0
-margin_right = 613.0
-margin_bottom = 225.0
+margin_left = 781.0
+margin_top = 152.0
+margin_right = 794.0
+margin_bottom = 197.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control6"]
 anchor_left = 0.09
 anchor_top = 0.178
 anchor_right = 0.09
 anchor_bottom = 0.178
-margin_left = 17.83
-margin_top = -31.01
-margin_right = 141.83
-margin_bottom = -5.01
+margin_left = -232.17
+margin_top = -32.518
+margin_right = -108.17
+margin_bottom = -6.51799
 custom_fonts/normal_font = SubResource( 1 )
 text = "Композиция
 "
 scroll_active = false
 
 [node name="CompositionTextEdit" type="TextEdit" parent="Control6"]
-margin_left = 18.0
-margin_top = 7.0
-margin_right = 222.0
-margin_bottom = 113.0
+margin_left = -232.0
+margin_top = 5.492
+margin_right = -28.0
+margin_bottom = 111.492
 custom_colors/font_color_readonly = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 readonly = true
 override_selected_font_color = true
 
 [node name="Control7" type="Control" parent="."]
-margin_left = 351.0
-margin_top = 325.0
-margin_right = 364.0
-margin_bottom = 370.0
+margin_left = 532.0
+margin_top = 297.0
+margin_right = 545.0
+margin_bottom = 342.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control7"]
 anchor_left = 0.09
 anchor_top = 0.178
 anchor_right = 0.09
 anchor_bottom = 0.178
-margin_left = 18.0
-margin_top = -31.502
-margin_right = 96.0
-margin_bottom = -5.502
+margin_left = -204.0
+margin_top = -33.01
+margin_right = -126.0
+margin_bottom = -7.01
 custom_fonts/normal_font = SubResource( 1 )
 text = "Герои
 "
 scroll_active = false
 
 [node name="CharactersTextEdit" type="TextEdit" parent="Control7"]
-margin_left = 18.0
-margin_top = 7.0
-margin_right = 222.0
-margin_bottom = 113.0
+margin_left = -204.0
+margin_top = 5.492
+margin_bottom = 111.492
 custom_colors/font_color_readonly = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 readonly = true
 override_selected_font_color = true
 
 [node name="Control8" type="Control" parent="."]
-margin_left = 600.0
-margin_top = 325.0
-margin_right = 613.0
-margin_bottom = 370.0
+margin_left = 781.0
+margin_top = 297.0
+margin_right = 794.0
+margin_bottom = 342.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control8"]
 anchor_left = 0.09
 anchor_top = 0.178
 anchor_right = 0.09
 anchor_bottom = 0.178
-margin_left = 17.83
-margin_top = -31.01
-margin_right = 141.83
-margin_bottom = -5.01
+margin_left = -232.17
+margin_top = -32.518
+margin_right = -108.17
+margin_bottom = -6.51799
 custom_fonts/normal_font = SubResource( 1 )
 text = "Теми"
 scroll_active = false
 
 [node name="ThemesTextEdit" type="TextEdit" parent="Control8"]
-margin_left = 18.0
-margin_top = 7.0
-margin_right = 222.0
-margin_bottom = 113.0
+margin_left = -232.0
+margin_top = 5.492
+margin_right = -28.0
+margin_bottom = 111.492
 custom_colors/font_color_readonly = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 readonly = true
 override_selected_font_color = true
 
 [node name="Control9" type="Control" parent="."]
-margin_left = 351.0
-margin_top = 474.0
-margin_right = 364.0
-margin_bottom = 519.0
+margin_left = 532.0
+margin_top = 446.0
+margin_right = 545.0
+margin_bottom = 491.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control9"]
 anchor_left = 0.09
 anchor_top = 0.178
 anchor_right = 0.09
 anchor_bottom = 0.178
-margin_left = 17.83
-margin_top = -31.01
-margin_right = 200.83
-margin_bottom = -5.01
+margin_left = -204.17
+margin_top = -32.01
+margin_right = -21.17
+margin_bottom = -6.00999
 custom_fonts/normal_font = SubResource( 1 )
 text = "Мотиви и фигури"
 scroll_active = false
 
 [node name="MotivesAndFiguresTextEdit" type="TextEdit" parent="Control9"]
-margin_left = 18.0
-margin_top = 7.0
-margin_right = 222.0
-margin_bottom = 113.0
+margin_left = -204.0
+margin_top = 6.0
+margin_bottom = 112.0
 custom_colors/font_color_readonly = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 readonly = true
 override_selected_font_color = true
 
 [node name="Control10" type="Control" parent="."]
-margin_left = 600.0
-margin_top = 474.0
-margin_right = 613.0
-margin_bottom = 519.0
+margin_left = 781.0
+margin_top = 446.0
+margin_right = 794.0
+margin_bottom = 491.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control10"]
 anchor_left = 0.09
 anchor_top = 0.178
 anchor_right = 0.09
 anchor_bottom = 0.178
-margin_left = 17.83
-margin_top = -31.01
-margin_right = 141.83
-margin_bottom = -5.01
+margin_left = -232.17
+margin_top = -32.01
+margin_right = -108.17
+margin_bottom = -6.00999
 custom_fonts/normal_font = SubResource( 1 )
 text = "Опозиции"
 scroll_active = false
 
 [node name="OppositionsTextEdit" type="TextEdit" parent="Control10"]
-margin_left = 18.0
-margin_top = 7.0
-margin_right = 222.0
-margin_bottom = 113.0
+margin_left = -232.0
+margin_top = 6.0
+margin_right = -28.0
+margin_bottom = 112.0
 custom_colors/font_color_readonly = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 readonly = true
 override_selected_font_color = true
 
 [node name="Control11" type="Control" parent="."]
-margin_left = 81.0
-margin_top = 326.0
-margin_right = 94.0
-margin_bottom = 371.0
+margin_left = 310.0
+margin_top = 296.0
+margin_right = 323.0
+margin_bottom = 341.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control11"]
 anchor_left = 0.09
 anchor_top = 0.178
 anchor_right = 0.09
 anchor_bottom = 0.178
-margin_left = 17.83
-margin_top = -31.01
-margin_right = 200.83
-margin_bottom = -5.01
+margin_left = 459.83
+margin_top = -177.01
+margin_right = 642.83
+margin_bottom = -151.01
 custom_fonts/normal_font = SubResource( 1 )
 text = "Идейни внушения"
 scroll_active = false
 
 [node name="IdeologicalSuggestionsTextEdit" type="TextEdit" parent="Control11"]
-margin_left = 18.0
-margin_top = 7.0
-margin_right = 222.0
-margin_bottom = 113.0
+margin_left = 460.0
+margin_top = -139.0
+margin_right = 664.0
+margin_bottom = -33.0
 custom_colors/font_color_readonly = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 readonly = true
 override_selected_font_color = true
 
 [node name="Control12" type="Control" parent="."]
-margin_left = 81.0
-margin_top = 474.0
-margin_right = 94.0
-margin_bottom = 519.0
+margin_left = 310.0
+margin_top = 444.0
+margin_right = 323.0
+margin_bottom = 489.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control12"]
 anchor_left = 0.09
 anchor_top = 0.178
 anchor_right = 0.09
 anchor_bottom = 0.178
-margin_left = 17.83
-margin_top = -31.01
-margin_right = 141.83
-margin_bottom = -5.01
+margin_left = 459.83
+margin_top = -180.01
+margin_right = 583.83
+margin_bottom = -154.01
 custom_fonts/normal_font = SubResource( 1 )
 text = "Забележки"
 scroll_active = false
 
 [node name="RemarksTextEdit" type="TextEdit" parent="Control12"]
-margin_left = 18.0
-margin_top = 7.0
-margin_right = 222.0
-margin_bottom = 113.0
+margin_left = 460.0
+margin_top = -142.0
+margin_right = 664.0
+margin_bottom = -36.0
 custom_colors/font_color_readonly = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 readonly = true
 override_selected_font_color = true
 
-[connection signal="item_selected" from="PublishedWorkList" to="." method="_on_PublishedWorkList_item_selected"]
+[connection signal="item_selected" from="ChoosePublishedWorkList" to="." method="_on_PublishedWorkList_item_selected"]
+[connection signal="item_selected" from="ChooseAuthorList" to="." method="_on_ChooseAuthorList_item_selected"]

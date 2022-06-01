@@ -91,7 +91,7 @@ func _on_ChooseButton_button_down():
 	chooseButton.disabled=true;
 	emit_signal("questionAnswered");
 
-func _on_EntityList_multi_selected(index, selected):
+func _on_EntityList_multi_selected(_index, _selected):
 	audioStreamPlayer.play();
 	selectedEntities.clear();
 	
