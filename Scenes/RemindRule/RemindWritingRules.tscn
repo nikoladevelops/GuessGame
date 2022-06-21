@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/RemindRule/RemindRule.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/RemindRule/RemindWritingRules.gd" type="Script" id=2]
+
+[node name="RemindWritingRules" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[connection signal="item_selected" from="RuleList" to="." method="_on_RuleList_item_selected"]
