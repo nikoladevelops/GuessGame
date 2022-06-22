@@ -1,18 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/RemindRule/RemindGrammarRules.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/RemindRule/RemindWritingRules.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/RemindRule/RemindPunctuationRules.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 
+[node name="RemindPunctuationRules" parent="." instance=ExtResource( 4 )]
+
 [node name="RemindGrammarRules" parent="." instance=ExtResource( 1 )]
 visible = false
 
 [node name="RemindWritingRules" parent="." instance=ExtResource( 3 )]
+visible = false
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
