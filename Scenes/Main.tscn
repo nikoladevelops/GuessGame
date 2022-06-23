@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/RemindRule/RemindGrammarRules.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/RemindRule/RemindWritingRules.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/RemindRule/RemindPunctuationRules.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/QuestionChlenuvane/QuestionChlenuvane.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -11,6 +12,7 @@ anchor_bottom = 1.0
 script = ExtResource( 2 )
 
 [node name="RemindPunctuationRules" parent="." instance=ExtResource( 4 )]
+visible = false
 
 [node name="RemindGrammarRules" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -18,7 +20,10 @@ visible = false
 [node name="RemindWritingRules" parent="." instance=ExtResource( 3 )]
 visible = false
 
+[node name="QuestionChlenuvane" parent="." instance=ExtResource( 5 )]
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 
+[connection signal="questionAnswered" from="QuestionChlenuvane" to="." method="_on_QuestionChlenuvane_questionAnswered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
